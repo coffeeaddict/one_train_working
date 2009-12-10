@@ -1,0 +1,23 @@
+OneTrainWorking
+===============
+
+This replaces the method that Rails uses to generate the
+FormAuthenticityToken. It's goal is to prevent the intermittent
+InvalidAuthToken errors (which occur mainly on IE). They are caused
+because Rails uses base64 to sanitize the random bytes generated and
+base64 consists of things like '/', '=', '+', etc.
+
+However, the ActiveSupport::SecureRandom module (provided by Rails)
+also offers a method wich will give the random bytes as hex.
+
+See http://en.wikipedia.org/wiki/Token_(railway_signalling)#Token_only for the naming
+
+
+Example
+=======
+
+There is no example, just install the plugin and it works
+
+
+Copyright (c) 2009 Hartog C. de Mik 'coffeeaddict_nl', released under
+the MIT license
